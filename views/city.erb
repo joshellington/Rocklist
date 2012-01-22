@@ -1,0 +1,20 @@
+<div id="city-header">
+  <h2><%= @homepage[:city] %></h2>
+</div>
+
+<div id="city-categories">
+  <% @homepage[:categories].each do |cat| %>
+    <% unless cat.css('ul').empty? %>
+      <div class="category">
+        <h3><a href="/city/<%= @city %>/<%= cat.css('a')[0].values[0] %>"><%= cat.css('h4.ban').text %></a></h3>
+        <% cat.css('ul').each do |ul| %>
+          <ul class="cat-single">
+            <% ul.css('li').each do |li| %>
+              <li><a href="/city/<%= @city %>/<%= li.css('a')[0].values[0] %>"><%= li.text %></a></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

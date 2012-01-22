@@ -1,0 +1,11 @@
+<div id="city-header">
+  <h2><%= @section[:city] %></h2>
+</div>
+
+<div id="city-section">
+  <% @section[:list].each do |sec| %>
+    <div class="section-row">
+      <h4><%= sec.css('a')[0].text %></h4>
+    </div>
+  <% end %>
+</div>
